@@ -1,0 +1,12 @@
+main {
+    padding: 0 0 7.5rem 0;
+    width: calc(100% - 2rem);
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    
+    & img {
+        margin: 1.5rem;
+    }
+}
