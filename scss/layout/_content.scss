@@ -55,7 +55,7 @@ p:nth-child(2) {
     color: $neutral-color;
     
     &::before {
-        content: url("/images/heart.svg");
+        content: url("./images/heart.svg");
         padding-right: 1rem;
         vertical-align: sub;
     }
@@ -66,7 +66,7 @@ p:nth-child(1) {
     color: $neutral-color;
     
     &::before {
-        content: url("/images/user-icon.svg");
+        content: url("./images/user-icon.svg");
         padding-right: 1rem;
         vertical-align: sub;
     }
