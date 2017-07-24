@@ -76,7 +76,7 @@ h1 {
   @media (max-width: 1199px) {
     h1 {
       font-size: 2.4rem; } }
-  @media (max-width: 819px) {
+  @media (max-width: 599px) {
     h1 {
       font-size: 1.9rem; } }
 
@@ -87,7 +87,7 @@ h2 {
   @media (max-width: 1199px) {
     h2 {
       font-size: 1.9rem; } }
-  @media (max-width: 819px) {
+  @media (max-width: 599px) {
     h2 {
       font-size: 1.6rem; } }
 
@@ -98,7 +98,7 @@ h3 {
   @media (max-width: 1199px) {
     h3 {
       font-size: 1.6rem; } }
-  @media (max-width: 819px) {
+  @media (max-width: 599px) {
     h3 {
       font-size: 1.4rem; } }
 
@@ -109,7 +109,7 @@ h4 {
   @media (max-width: 1199px) {
     h4 {
       font-size: 1.4rem; } }
-  @media (max-width: 819px) {
+  @media (max-width: 599px) {
     h4 {
       font-size: 1.3rem; } }
 
@@ -133,7 +133,7 @@ p {
   @media (max-width: 1199px) {
     p {
       font-size: 1.3rem; } }
-  @media (max-width: 819px) {
+  @media (max-width: 599px) {
     p {
       font-size: 1.3rem; } }
 
@@ -153,28 +153,199 @@ header img {
   margin: 3rem 0 1rem 0; }
 
 header h1 {
-  margin: 0 0 1rem 0; }
+  margin: 0 0 1rem 0;
+  cursor: pointer; }
 
 header p {
-  color: #aaa; }
+  color: #aaa;
+  text-align: center; }
+
+.animate {
+  -webkit-animation: twirl 1s ease-in 0s 1 paused, roll 1s ease-out 1.2s 1 paused;
+          animation: twirl 1s ease-in 0s 1 paused, roll 1s ease-out 1.2s 1 paused; }
+
+.change {
+  opacity: 0;
+  -webkit-animation: fadeIn 2s ease-in 0s 1 forwards paused;
+          animation: fadeIn 2s ease-in 0s 1 forwards paused; }
+
+@-webkit-keyframes twirl {
+  0% {
+    -webkit-transform: rotateY(0deg);
+            transform: rotateY(0deg);
+    -webkit-perspective: 1000px;
+            perspective: 1000px; }
+  100% {
+    -webkit-transform: rotateY(360deg);
+            transform: rotateY(360deg);
+    -webkit-perspective: none;
+            perspective: none; } }
+
+@keyframes twirl {
+  0% {
+    -webkit-transform: rotateY(0deg);
+            transform: rotateY(0deg);
+    -webkit-perspective: 1000px;
+            perspective: 1000px; }
+  100% {
+    -webkit-transform: rotateY(360deg);
+            transform: rotateY(360deg);
+    -webkit-perspective: none;
+            perspective: none; } }
+
+@-webkit-keyframes roll {
+  0% {
+    -webkit-transform: rotateX(0deg);
+            transform: rotateX(0deg);
+    -webkit-perspective: 1000px;
+            perspective: 1000px; }
+  100% {
+    -webkit-transform: rotateX(360deg);
+            transform: rotateX(360deg);
+    -webkit-perspective: none;
+            perspective: none; } }
+
+@keyframes roll {
+  0% {
+    -webkit-transform: rotateX(0deg);
+            transform: rotateX(0deg);
+    -webkit-perspective: 1000px;
+            perspective: 1000px; }
+  100% {
+    -webkit-transform: rotateX(360deg);
+            transform: rotateX(360deg);
+    -webkit-perspective: none;
+            perspective: none; } }
+
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
 
 main {
   padding: 0 0 7.5rem 0;
-  width: calc(100% - 2rem);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
-          justify-content: center; }
-  main img {
-    margin: 1.5rem; }
+          justify-content: center;
+  background-color: #fff; }
+
+.info {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  padding: 1rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-animation: slideOut 0.5s ease-out forwards;
+          animation: slideOut 0.5s ease-out forwards; }
+  .info::after {
+    content: ' ';
+    white-space: pre;
+    position: absolute;
+    background-color: #000;
+    width: 100%;
+    height: 7rem;
+    left: 0;
+    bottom: 0;
+    z-index: 1;
+    opacity: 0.75; }
+
+main article {
+  margin: 1.5rem;
+  width: calc(100% / 3 - 6rem);
+  -ms-flex-item-align: baseline;
+      align-self: baseline;
+  text-align: left;
+  position: relative; }
+  main article:hover .info {
+    -webkit-animation: slideIn 0.5s ease-in;
+            animation: slideIn 0.5s ease-in; }
+  @media (max-width: 599px) {
+    main article {
+      display: block;
+      width: 100%; } }
+
+p:nth-child(2) {
+  padding-top: 1rem;
+  z-index: 2;
+  color: #fff; }
+  p:nth-child(2)::before {
+    content: url("/images/heart.svg");
+    padding-right: 1rem;
+    vertical-align: sub; }
+
+p:nth-child(1) {
+  z-index: 2;
+  color: #fff; }
+  p:nth-child(1)::before {
+    content: url("/images/user-icon.svg");
+    padding-right: 1rem;
+    vertical-align: sub; }
+
+article img {
+  width: 100%; }
+
+@-webkit-keyframes slideIn {
+  from {
+    -webkit-transform: translateY(30%);
+            transform: translateY(30%);
+    opacity: 0; }
+  to {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+    opacity: 1; } }
+
+@keyframes slideIn {
+  from {
+    -webkit-transform: translateY(30%);
+            transform: translateY(30%);
+    opacity: 0; }
+  to {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+    opacity: 1; } }
+
+@-webkit-keyframes slideOut {
+  from {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+    opacity: 1; }
+  to {
+    -webkit-transform: translateY(30%);
+            transform: translateY(30%);
+    opacity: 0; } }
+
+@keyframes slideOut {
+  from {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+    opacity: 1; }
+  to {
+    -webkit-transform: translateY(30%);
+            transform: translateY(30%);
+    opacity: 0; } }
 
 footer {
   width: 100%;

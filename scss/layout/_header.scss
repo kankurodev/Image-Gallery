@@ -10,8 +10,34 @@ header img {
 
 header h1 {
     margin: 0 0 1rem 0;
+    cursor: pointer;
 }
 
 header p {
     color: $light-text;
+    text-align: center;
+}
+
+.animate {
+    animation: twirl 1s ease-in 0s 1 paused, roll 1s ease-out 1.2s 1 paused;
+}
+
+.change {
+    opacity: 0;
+    animation: fadeIn 2s ease-in 0s 1 forwards paused;
+}
+
+@keyframes twirl {
+    0% {transform: rotateY(0deg); perspective: 1000px;}
+    100% {transform: rotateY(360deg); perspective: none;}
+}
+
+@keyframes roll {
+    0% {transform: rotateX(0deg); perspective: 1000px;}
+    100% {transform: rotateX(360deg); perspective: none;}
+}
+
+@keyframes fadeIn {
+    0% {opacity: 0;}
+    100% {opacity: 1;}
 }
